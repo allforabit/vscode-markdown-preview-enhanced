@@ -55,6 +55,10 @@
                 "title": "Markdown Preview Enhanced: Run All Code Chunks"
             },
             {
+                "command": "markdown-preview-enhanced.runAllCodeChunksDumb",
+                "title": "Markdown Preview Enhanced: Run All Code Chunks Dumb"
+            },
+            {
                 "command": "markdown-preview-enhanced.runCodeChunk",
                 "title": "Markdown Preview Enhanced: Run Code Chunk"
             },

@@ -359,6 +359,21 @@ export function activate(context: vscode.ExtensionContext) {
     );
   }
 
+  function runAllCodeChunksCommandDumb() {
+    const textEditor = vscode.window.activeTextEditor;
+
+    vscode.commands.executeCommand(
+      "_workbench.htmlPreview.postMessage",
+      textEditor.document.uri.with({
+        scheme: "markdown-preview-enhanced",
+        path: "single-preview.rendered",
+      }),
+      {
+        command: "runAllCodeChunks",
+      },
+    );
+  }
+
   function runCodeChunkCommand() {
     const textEditor = vscode.window.activeTextEditor;
     if (!textEditor.document) {
@@ -634,6 +649,13 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(
       "markdown-preview-enhanced.runAllCodeChunks",
       runAllCodeChunksCommand,
+    ),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "markdown-preview-enhanced.runAllCodeChunksDumb",
+      runAllCodeChunksCommandDumb,
     ),
   );
 
